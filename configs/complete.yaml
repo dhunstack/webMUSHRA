@@ -3,7 +3,7 @@ testId: complete_test
 bufferSize: 2048
 stopOnErrors: true
 showButtonPreviousPage: true
-language: de
+language: en
 remoteService: service/write.php
 
 pages:
