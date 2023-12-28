@@ -104,21 +104,85 @@ def create_paired_comparison_page(id, name, unforced, content, showWaveform, ena
     return paired_comparison_page
 
 # Finish Page
-def create_finish_page(id, name, content, showResults, writeResults):
+def create_finish_page(id, name, content, popupContent, showResults, showErrors, writeResults, questionnaire):
     finish_page = {
         "type": "finish",
         "id": id,
         "name": name,
         "content": content,
+        "popupContent": popupContent,
         "showResults": showResults,
-        "writeResults": writeResults
+        "showErrors": showErrors,
+        "writeResults": writeResults,
+        "questionnaire": questionnaire
     }
     return finish_page
+
+# Questionnaire Page
+def create_questionnaire_field(email_flag, age_flag, gender_flag, feedback_flag):
+    """
+        Create a questionnaire field based on the flags passed in.
+    """
+
+    # Create above yaml questionnaire as a python dictionary
+
+    email = {
+        "type": "text",
+        "label": "eMail",
+        "name": "email",
+        "optional": False
+    }
+
+    age = {
+        "type": "number",
+        "label": "Age",
+        "name": "age",
+        "optional": True,
+        "min": 0,
+        "max": 100,
+        "default": 30
+    }
+
+    gender = {
+        "type": "likert",
+        "label": "Gender",
+        "name": "gender",
+        "response": 
+        [
+            {
+                "value": "female",
+                "label": "Female"
+            },
+            {
+                "value": "male",
+                "label": "Male"
+            },
+            {
+                "value": "other",
+                "label": "Other"
+            }
+        ]
+    }
+
+    feedback = {
+        "type": "long_text",
+        "label": "Feedback",
+        "name": "feedback",
+        "optional": True
+    }
+
+    questionnaire = [
+        email if email_flag else None,
+        age if age_flag else None,
+        gender if gender_flag else None,
+        feedback if feedback_flag else None
+    ]
+
+    # Remove None values from the list
+    questionnaire = [item for item in questionnaire if item is not None]
+
+    return questionnaire
 
 def __main__():
     print("This is the configScript.py file. It is not meant to be run as a standalone script.")
     pass
-
-
-
-

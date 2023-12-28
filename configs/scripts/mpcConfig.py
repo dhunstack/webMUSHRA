@@ -1,5 +1,5 @@
 import os
-from configGen import create_config, write_config_to_file, create_mushra_page, create_generic_page, create_consent_page, create_volume_page, create_finish_page
+from configGen import create_config, write_config_to_file, create_mushra_page, create_generic_page, create_consent_page, create_volume_page, create_questionnaire_field, create_finish_page
 
 def create_file_dict(folder_path):
     file_dict = {}
@@ -48,7 +48,7 @@ def get_generic_page():
     name= "Brightness Perception Test"
     contentText= "\
             Welcome to our online survey about music perception and thank you very much for participating! \n \n \
-            In this survey, we wish to understand the perception of the word brightness when talking about music. \n \
+            In this survey, we wish to understand the sensation of brightness when talking about music. \n \
             Brightness is widely used to describe the timbre attributes of a musical instrument, an opera singer's voice or any kind of sound. \n \n \
             With our study, we'd like to find out how you perceive the brightness of multiple song snippets. \n \n \
             We will play you a reference song snippet and then ask you to rate the brightness of 4 other song snippets. \n \
@@ -107,10 +107,11 @@ if __name__ == "__main__":
     # pages.append(create_consent_page("consent1", "Consent", "Please give your consent to participate in the test"))
     # pages.append(create_volume_page("volume1", "Volume", "Please set the volume", "configs/resources/audio/calibration/volume/pinknoise_minus60db.wav"))
     pages.extend(create_mushra_test_pages(folder_path))
-    pages.append(create_finish_page("finish1", "Finish", "Thank you for participating in the test!", True, True))
-    config = create_config("MPCBrightness", "mpcBrightness", 1024, True, True, "service/write.php", pages)
-    write_config_to_file(config, "mpc_brightness.yaml")
 
+    questionnaire = create_questionnaire_field(True, True, True, False)
+    pages.append(create_finish_page("finish1", "Finish", "Thank you for participating in the test!", "Your results were sent. Goodbye and have a nice day", True, False, True, questionnaire))
+    config = create_config("MPCBrightness", "mpcBrightness", 1024, True, True, "https://formspree.io/f/xkndnwpv", pages)
+    write_config_to_file(config, "mpc_brightness.yaml")
 
 
 

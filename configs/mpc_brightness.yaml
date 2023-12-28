@@ -2,15 +2,15 @@ bufferSize: 1024
 pages:
 - content: '            Welcome to our online survey about music perception and thank
     you very much for participating! <br> <br>             In this survey, we wish
-    to understand the perception of the word brightness when talking about music.
-    <br>             Brightness is widely used to describe the timbre attributes of
-    a musical instrument, an opera singer&#39;s voice or any kind of sound. <br> <br>             With
-    our study, we&#39;d like to find out how you perceive the brightness of multiple
-    song snippets. <br> <br>             We will play you a reference song snippet
-    and then ask you to rate the brightness of 4 other song snippets. <br>             Please
-    use headphones to participate in this survey.             The survey will take
-    approximately 10 minutes. <br> <br>            Please press <b> Next </b> below
-    to proceed to the instructions page <br>             '
+    to understand the sensation of brightness when talking about music. <br>             Brightness
+    is widely used to describe the timbre attributes of a musical instrument, an opera
+    singer&#39;s voice or any kind of sound. <br> <br>             With our study,
+    we&#39;d like to find out how you perceive the brightness of multiple song snippets.
+    <br> <br>             We will play you a reference song snippet and then ask you
+    to rate the brightness of 4 other song snippets. <br>             Please use headphones
+    to participate in this survey.             The survey will take approximately
+    10 minutes. <br> <br>            Please press <b> Next </b> below to proceed to
+    the instructions page <br>             '
   id: generic1
   name: Brightness Perception Test
   type: generic
@@ -320,10 +320,34 @@ pages:
 - content: Thank you for participating in the test!
   id: finish1
   name: Finish
+  popupContent: Your results were sent. Goodbye and have a nice day
+  questionnaire:
+  - label: eMail
+    name: email
+    optional: false
+    type: text
+  - default: 30
+    label: Age
+    max: 100
+    min: 0
+    name: age
+    optional: true
+    type: number
+  - label: Gender
+    name: gender
+    response:
+    - label: Female
+      value: female
+    - label: Male
+      value: male
+    - label: Other
+      value: other
+    type: likert
+  showErrors: false
   showResults: true
   type: finish
   writeResults: true
-remoteService: service/write.php
+remoteService: https://formspree.io/f/xkndnwpv
 showButtonPreviousPage: true
 stopOnErrors: true
 testId: mpcBrightness
