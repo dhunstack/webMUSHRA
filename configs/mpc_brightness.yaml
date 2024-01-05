@@ -1,47 +1,48 @@
 bufferSize: 1024
 pages:
-- content: '            Welcome to our online survey about music perception and thank
-    you very much for participating! <br> <br>             In this survey, we wish
-    to understand the sensation of brightness when talking about music. <br>             Brightness
-    is widely used to describe the timbre attributes of a musical instrument, an opera
-    singer&#39;s voice or any kind of sound. <br> <br>             With our study,
-    we&#39;d like to find out how you perceive the brightness of multiple song snippets.
-    <br> <br>             We will play you a reference song snippet and then ask you
-    to rate the brightness of 4 other song snippets. <br>             Please use headphones
-    to participate in this survey.             The survey will take approximately
-    10 minutes. <br> <br>            Please press <b> Next </b> below to proceed to
-    the instructions page <br>             '
+- content: '            Welcome to our online survey about brightness perception and
+    thank you very much for participating! <br> <br>             In this survey, we
+    wish to understand the sensation of brightness in context of music. <br>             Brightness
+    is used to describe the timbre of a musical instrument, human voice and other
+    music like sounds. <br> <br>             With our study, we&#39;d like to find
+    out how you perceive the brightness of small song snippets. <br> <br>             We
+    will give you a reference song and then ask you to rate the brightness of 4 snippets
+    with respect to the reference. <br>             Please use headphones to participate
+    in this survey.             The survey will take approximately 20 minutes. <br>
+    <br>            Please press <b> Next </b> below to proceed to the instructions
+    page <br>             '
   id: generic1
   name: Brightness Perception Test
   type: generic
-- content: '            You will be presented a reference sound and 4 potentially
-    edited versions.             If any of the 4 conditions sounds less bright or
-    more bright, you can indicate that by moving the slider down or up. <br> <br>             Although
-    the slider is continuous, we&#39;ll assign all ratings to one of the five categories
-    mentioned between the two enclosing markers. <br>             So, a rating of
-    63 or 79 will both be assigned to the category <b> More Bright </b>.             Similarly,
-    any rating between 0 to 19 will be assigned to the category <b> Least Bright </b>.
-    <br> <br>            For each condition, your rating should be in comparison to
-    the reference sound only. <br>             When a condition is played using the
-    <b> Play </b> button, its slider becomes active and a rating can be selected.
-    <br>             You can switch between the reference and condition as many times
-    before selecting the rating. <br> <br>             If you perceive a song snippet
-    as equally bright, that is no change from original, just set the slider at 50
-    (same brightness). <br>             Please press <b> Next </b> below to proceed
-    to the test <br>             '
+- content: '            The test will have 16 test cases. Each case will have one
+    reference sound and four possibly edited versions.             Rate each edited
+    condition sound with respect to the reference. <br> <br>             Assign each
+    condition to one of the five categories.             If the condition sound seems
+    unchanged, leave the slider at 50 i.e. <b>Same Brightness</b>.             If
+    the condition sound seems <b>More Bright</b>, <b>Most Bright</b>, <b>Less Bright</b>,
+    or <b>Least Bright</b>, set the slider to any number within that category. <br>            For
+    example, <b>C2</b> here is brighter and <b>C3</b> is less bright compared to reference.
+    <br> <br>            While all the operations on this page could be done using
+    a mouse, there are helpful keyboard shortcuts.             Press <b>0</b> to play
+    reference, <b>1</b> for condition 1, <b>2</b> for condition 2 etc. Press the same
+    key again to pause.            Press <b>Shift + Up key</b> to increase the slider
+    value by 10. Press <b>Shift + Down key</b> to decrease the slider value by 10.
+    <br> <br>            Adjust the loop markers to loop a shorter section of the
+    original sound. <br>             Please press <b> Next </b> below to proceed to
+    the test <br>             '
   createAnchor35: false
   createAnchor70: false
   enableLooping: true
   id: instruction1
   name: Instructions Page
   randomize: true
-  reference: configs/resources/audio/experiment/Classical_GustavHolst_01_1/Classical_GustavHolst_01+0.000dB_sc1110hz_scDelta+0hz.wav
-  showConditionNames: false
+  reference: configs/resources/audio/experiment/HerbieHancock_Snippet_1/herbie_hancock_snippet+0.000dB_sc5342hz_scDelta+0hz.wav
+  showConditionNames: true
   showWaveform: true
   stimuli:
-    C1: configs/resources/audio/experiment/Classical_GustavHolst_01_1/Classical_GustavHolst_01-2.00dB_sc933hz_scDelta-177hz.wav
-    C2: configs/resources/audio/experiment/Classical_GustavHolst_01_1/Classical_GustavHolst_01+1.000dB_sc1222hz_scDelta+112hz.wav
-    C3: configs/resources/audio/experiment/Classical_GustavHolst_01_1/Classical_GustavHolst_01-4.00dB_sc809hz_scDelta-301hz.wav
+    C1: configs/resources/audio/experiment/HerbieHancock_Snippet_1/herbie_hancock_snippet-2.00dB_sc4199hz_scDelta-1143hz.wav
+    C2: configs/resources/audio/experiment/HerbieHancock_Snippet_1/herbie_hancock_snippet+3.000dB_sc7286hz_scDelta+1943hz.wav
+    C3: configs/resources/audio/experiment/HerbieHancock_Snippet_1/herbie_hancock_snippet-4.00dB_sc3272hz_scDelta-2070hz.wav
   strict: false
   switchBack: true
   type: mushra
@@ -322,27 +323,35 @@ pages:
   name: Finish
   popupContent: Your results were sent. Goodbye and have a nice day
   questionnaire:
+  - label: Name
+    name: user
+    optional: false
+    type: text
   - label: eMail
     name: email
     optional: false
     type: text
-  - default: 30
-    label: Age
+  - default: 0
+    label: Age (optional)
     max: 100
     min: 0
     name: age
     optional: true
     type: number
-  - label: Gender
-    name: gender
+  - label: Music Education
+    name: education
     response:
-    - label: Female
-      value: female
-    - label: Male
-      value: male
-    - label: Other
-      value: other
+    - label: None
+      value: none
+    - label: Informal
+      value: informal
+    - label: Formal
+      value: formal
     type: likert
+  - label: Feedback
+    name: feedback
+    optional: true
+    type: long_text
   showErrors: false
   showResults: true
   type: finish

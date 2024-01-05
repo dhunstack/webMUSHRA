@@ -119,12 +119,19 @@ def create_finish_page(id, name, content, popupContent, showResults, showErrors,
     return finish_page
 
 # Questionnaire Page
-def create_questionnaire_field(email_flag, age_flag, gender_flag, feedback_flag):
+def create_questionnaire_field(name_flag, email_flag, age_flag, education_flag, feedback_flag):
     """
         Create a questionnaire field based on the flags passed in.
     """
 
     # Create above yaml questionnaire as a python dictionary
+
+    name = {
+        "type": "text",
+        "label": "Name",
+        "name": "user",
+        "optional": False
+    }
 
     email = {
         "type": "text",
@@ -135,31 +142,31 @@ def create_questionnaire_field(email_flag, age_flag, gender_flag, feedback_flag)
 
     age = {
         "type": "number",
-        "label": "Age",
+        "label": "Age (optional)",
         "name": "age",
         "optional": True,
         "min": 0,
         "max": 100,
-        "default": 30
+        "default": 0
     }
 
-    gender = {
+    education = {
         "type": "likert",
-        "label": "Gender",
-        "name": "gender",
+        "label": "Music Education",
+        "name": "education",
         "response": 
         [
             {
-                "value": "female",
-                "label": "Female"
+                "value": "none",
+                "label": "None"
             },
             {
-                "value": "male",
-                "label": "Male"
+                "value": "informal",
+                "label": "Informal"
             },
             {
-                "value": "other",
-                "label": "Other"
+                "value": "formal",
+                "label": "Formal"
             }
         ]
     }
@@ -172,9 +179,10 @@ def create_questionnaire_field(email_flag, age_flag, gender_flag, feedback_flag)
     }
 
     questionnaire = [
+        name if name_flag else None,
         email if email_flag else None,
         age if age_flag else None,
-        gender if gender_flag else None,
+        education if education_flag else None,
         feedback if feedback_flag else None
     ]
 
