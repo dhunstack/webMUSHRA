@@ -6,7 +6,7 @@
 
 An experiment is configured by config files written in YAML. 
 The config files must be placed in the subfolder "/configs". 
-When the webMUSHRA page (e.g. http://localhost/webMUSHRA) is accessed, default.yaml is loaded. 
+When the webMUSHRA page (e.g. http://localhost/webMUSHRA) is accessed, mpc_brightness.yaml is loaded. 
 In case another config file should be loaded, a parameter "config" must be added to the url. 
 E.g. http://localhost/webMUSHRA?config=example.yaml loads the config stored in "/configs/example.yaml". 
 Filepaths in the config files are always relative to the root folder "/".
